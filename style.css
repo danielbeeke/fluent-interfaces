@@ -125,21 +125,30 @@ section iframe {
   border: none;
 }
 
+.controls {
+  display: none !important;
+}
+
 section iframe:not(.has-mouse) {
   pointer-events: none;
 }
 
 .chapter {
-  font-size: 28px;
+  font-size: 32px;
   font-style: italic;
   color: var(--accent);
-  background: black;
   padding: 4px 10px;
   border-radius: 5px;
+  font-weight: bold;
   position: fixed;
   top: 20px;
   left: 20px;
 
+}
+
+.chapter em {
+  font-size: 24px;
+  font-weight: normal;
 }
 
 .context {

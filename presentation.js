@@ -22,5 +22,5 @@ deck.on( 'slidechanged', event => {
    const chapters = [...document.querySelectorAll('.context')]
    const itemsWithSameText = chapters.filter(chapter => chapter.innerText == currentChapterText && !chapter.classList.contains('hidden'))
    const index = itemsWithSameText.indexOf(event.currentSlide.querySelector('.context'))
-   document.querySelector('.chapter').innerText = `${currentChapterText} (${index + 1} / ${itemsWithSameText.length})`
+   document.querySelector('.chapter').innerHTML = `${currentChapterText} <em>${index + 1} of ${itemsWithSameText.length}</em>`
  } );
