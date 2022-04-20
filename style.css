@@ -67,6 +67,10 @@ html {
   font-size: 28px;
 }
 
+strong {
+  font-weight: 900;
+}
+
 :root {
   --color-white: #fff;
   --color-orange: #e26145;
