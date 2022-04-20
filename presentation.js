@@ -4,6 +4,9 @@ import Notes from 'https://cdn.skypack.dev/reveal.js/plugin/notes/notes.esm.js';
 import Markdown from 'https://cdn.skypack.dev/reveal.js/plugin/markdown/markdown.esm.js';
 
 let deck = new Reveal({
+   simplemenu: {
+      auto: true
+  },
    plugins: [ Markdown, Highlight, Notes ],
    hash: true
 })

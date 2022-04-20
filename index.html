@@ -4,56 +4,66 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fluent APIs and libraries</title>
+  <title>Fluent interfaces</title>
   <script type="module" src="presentation.js"></script>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 </head>
 <body>
   <div class="reveal">
+    <div class="menubar">
+      <ul class="menu"></ul>
+  </div>
     <div class="slides">
-      <section data-markdown>
-        <textarea data-template>
-          # Fluent APIs and libraries
-          __All you need to know to make your own!__
-          ---
-          ## About me
-          [Daniël Beeke](https://danielbeeke.nl),<br />
-          Software engineer at [OM MediaWorks](https://www.om.org/mediaworks)
 
-          Dutch, living in Stockerau
-          ---
-          # My background
+<section data-name="Introduction">
+  <h1>Fluent interfaces</h1>
 
-          Fullstack<br>
-          I did a lot of Drupal before doing JS full time.
+  <strong>All you need to know to make your own!</strong>
+</section>
 
-          Working on a headless CMS that:
-          - uses RDF as data
-          - outputs PWA's with ease
-          - plans for federating of data between multiple instances
-          - here I learned about fluent APIs
+<section data-name="Introduction">
+  <h1>About me</h1>
 
-          ---
+  <a href="https://danielbeeke.nl">Daniël Beeke</a>,<br />
+  <p>Software engineer at <a href="https://www.om.org/mediaworks">OM MediaWorks</a></p>
 
-          ## Chapters
+  <p>Dutch, living in Stockerau</p>
+</section>
 
-          - What are Fluent API's?
-          - Use cases
-          - Different types of chains
-          - Core concepts
-          ---
-          ## What are Fluent API's?
+<section data-name="Introduction">
+  <h1>My background</h1>
 
-          You probably have been working with them.
+  <p>Full stack software engineer</p>
 
-          Note:
-          - You might not know the concept but...
-          - Who has been working with Fluent API's?
-        </textarea>
-      </section>
-      <section>
-        <h1>What are Fluent API's?</h1>
+  <p>Working on a headless CMS that:</p>
+  <ul>
+    <li>Uses RDF database</li>
+    <li>Outputs PWA's with ease</li>
+    <li>Up next: federating of data between instances</li>
+    <li>In this context I learned about fluent interfaces</li>
+  </ul>
+</section>
+          
+<section data-name="Introduction">
+  <h1>Chapters</h1>
+
+  <ul>
+    <li>What are fluent interfaces?</li>
+    <li>Use cases</li>
+    <li>Different types of chains</li>
+    <li>Core concepts</li>
+  </ul>
+</section>
+
+<section data-name="Fluent interfaces?">
+  <h1>What are fluent interfaces?</h1>
+
+  <p>You probably have been working with them.</p>
+</section>
+
+<section data-name="Fluent interfaces?">
+  <h1>What are fluent interfaces?</h1>
 <pre class="fragment"><code class="JavaScript hljs">
 jQuery('.my-button').fadeOut().remove()
 </code></pre>
@@ -64,9 +74,10 @@ new Person()
   .dateOfBirth('05-09-1883')
   .save()
 </code></pre>
-      </section>
-      <section>
-        <h3>Fluent Snake</h3>
+</section>
+
+<section data-name="Fluent interfaces?">
+  <h3>Fluent Snake</h3>
 <pre class=""><code class="JavaScript hljs">
 await api
   .fetch('https://en.wikipedia.org/wiki/Linux')
@@ -78,51 +89,55 @@ await api
 
 // Unix-like
   </code></pre>
-      </section>
-      <section>
-        <h3>LDflex</h3>
+</section>
+
+<section data-name="Fluent interfaces?">
+  <h3>LDflex</h3>
 <pre class=""><code class="JavaScript hljs">
 await solid.data['https://danielbeeke.nl/']['foaf:img']
 
 // https://danielbeeke.nl/images/daniel.jpg
   </code></pre>
-      </section>
+</section>
 
-      <section><iframe class="has-mouse" data-src="https://ldflex.github.io/Solid-Playground/#%5B'https%3A%2F%2Fdanielbeeke.nl%2F'%5D%5B'foaf%3Atopic_interest'%5D" data-preload></iframe></section>
-        <section data-markdown>
-          <textarea data-template>
-            # What are Fluent API's?
+<section data-name="Fluent interfaces?"><iframe class="has-mouse" data-src="https://ldflex.github.io/Solid-Playground/#%5B'https%3A%2F%2Fdanielbeeke.nl%2F'%5D%5B'foaf%3Atopic_interest'%5D" data-preload></iframe></section>
 
-            ### Developer experience
+<section data-name="Fluent interfaces?">
+  <h1>What are fluent interfaces?</h1>
 
-            - Abstractions on top of complexity
-            - Provide easy access to data
-            - Feel like objects
-            - TypeScript autocompletion
+  <h3>Developer experience</h3>
 
-            ---
+  <ul>
+    <li>Abstractions on top of complexity</li>
+    <li>Provide easy access to data</li>
+    <li>Feel like objects</li>
+    <li>TypeScript autocompletion</li>
+  </ul>
+</section>
 
-            # Use cases
+<section data-name="Use cases">
+  <h1>Use cases</h1>
 
-            - API libraries
-            - Data bindings for the template
-            - Query builders
-          </textarea>
-      </section>
+  <ul>
+    <li>Libraries</li>
+    <li>Data for the template</li>
+    <li>Query builders</li>
+  </ul>
+</section>
 
-      <section>
-        <h1>API libraries</h1>
-        <em>moment.js:</em>
+<section data-name="Use cases">
+  <h1>Libraries</h1>
+  <em>moment.js:</em>
 <pre class=""><code class="JavaScript hljs">
 moment('20111031', 'YYYYMMDD')
   .subtract(6, 'days')
   .fromNow()
 </code></pre>
-      </section>
+</section>
 
-      <section>
-        <h1>Data bindings for the template</h1>
-        <em><a href="https://github.com/danielbeeke/omni/blob/main/src/index.js">Omni prototype</a> (uses <a href="https://github.com/LDflex/LDflex">LDflex</a> and <a href="https://github.com/WebReflection/uhtml">uhtml/async</a>)</em>
+<section data-name="Use cases">
+  <h1>Data for the template</h1>
+  <em><a href="https://github.com/danielbeeke/omni/blob/main/src/index.js">Omni prototype</a> (uses <a href="https://github.com/LDflex/LDflex">LDflex</a> and <a href="https://github.com/WebReflection/uhtml">uhtml/async</a>)</em>
 <pre class=""><code class="JavaScript hljs">
 const source = 'https://ruben.verborgh.org/profile/'
 const omni = await new Omni(source, { context })
@@ -135,20 +150,19 @@ render(document.body, html`
   </ul>
 `);
 </code></pre>
-      </section>
+</section>
 
-      <section>
-        <h1>Query builders</h1>
-        <em>knex.js:</em>
+<section data-name="Use cases">
+  <h1>Query builders</h1>
+  <em>knex.js:</em>
 <pre class=""><code class="JavaScript hljs">
 knex.select('id').from('users')
 </code></pre>
-      </section>
+</section>
 
-
-      <section>
-        <h1>Query builders</h1>
-        <em>Our PWAs querying the headless CMS:</em>
+<section data-name="Use cases">
+  <h1>Query builders</h1>
+  <em>Our PWAs querying the headless CMS:</em>
 <pre class=""><code class="JavaScript hljs">
 const offset = state.page * this.pageSize
 const limit = this.pageSize
@@ -160,18 +174,27 @@ const overviewQuery = query(queryTypes)
   .addSidetrack('category')
   .paginate({ offset, limit })
 </code></pre>
-      </section>
-      <section><h1>Different types of chains</h1>
-        <p>Let's try to categorize the chains that we have seen.</p>
-      </section>
+</section>
 
-      <section><iframe data-src="illustration-slides.svg#builder-chain" data-preload></iframe></section>
-      <section><iframe data-src="illustration-slides.svg#queue-chain" data-preload></iframe></section>
-      <section><iframe data-src="illustration-slides.svg#proxy-chain" data-preload></iframe></section>
+<section data-name="Types of chains">
+  <h1>Different types of chains</h1>
+  <ul>
+    <li>Builder chain</li>
+    <li>Async Queue chain</li>
+    <li>Async Proxy chain</li>
+  </ul>
+</section>
 
-      <section><h1>Core concepts</h1></section>
-      <section>
-        <h1>Methods must return 'this'</h1>
+<section data-name="Types of chains"><iframe data-src="illustration-slides.svg#builder-chain" data-preload></iframe></section>
+<section data-name="Types of chains"><iframe data-src="illustration-slides.svg#queue-chain" data-preload></iframe></section>
+<section data-name="Types of chains"><iframe data-src="illustration-slides.svg#proxy-chain" data-preload></iframe></section>
+
+<section data-name="Core concepts">
+  <h1>Core concepts</h1>
+</section>
+  
+<section data-name="Core concepts">
+  <h1>Methods must return 'this'</h1>
 <pre class=""><code class="JavaScript hljs">
 class Thing {
   methodA () { return this }
@@ -185,11 +208,10 @@ class Thing {
 const item = new Thing().methodA().methodB()
 // b
 </code></pre>
-      </section>
+</section>
       
-
-      <section>
-        <h1>getters</h1>
+<section data-name="Core concepts">
+  <h1>getters</h1>
 <pre class=""><code class="JavaScript hljs">
 class Thing {
 
@@ -202,12 +224,12 @@ class Thing {
 console.log(item.fruit)
 // pear
 </code></pre>
-      </section>
+</section>
 
-      <section><iframe data-src="illustration-slides.svg#getters" data-preload></iframe></section>
+<section data-name="Core concepts"><iframe data-src="illustration-slides.svg#getters" data-preload></iframe></section>
 
-      <section>
-        <h1>You can use .then() to have async chains</h1>
+<section data-name="Core concepts">
+  <h1>You can use .then() to have async chains</h1>
 <pre class=""><code class="JavaScript hljs">
 class Thing {
 
@@ -222,13 +244,12 @@ const item = new Thing()
 console.log(await item)
 // Hello World
 </code></pre>
-      </section>
+</section>
 
-      <section>
-        <h1>Promise chain</h1>
+<section data-name="Core concepts">
+  <h1>Promise chain</h1>
 
-        <p>These can be used to return the value. Every segment of the chain appends a new Promise to the previous Promise.</p>
-
+  <p>These can be used to return the value. Every segment of the chain appends a new Promise to the previous Promise.</p>
 <pre><code class="JavaScript hljs">
 // A Promise chain
 
@@ -236,22 +257,18 @@ const person = await fetch('/user.json')
   .then(response => response.json())
   .then(response => new Person(response))
 </code></pre>
-        
-      </section>
+</section>
 
-      <section>
-        <h1>Proxy</h1>
-        <p>A layer on top of an object which can intercept and<br>
-          redefine fundamental operations on that object.</p>
- 
-          <p>We might want to have segments with properties we do not know beforehand.</p>
-   
-      </section>
+<section data-name="Core concepts">
+  <h1>Proxy</h1>
+  <p>A layer on top of an object which can intercept and<br>
+    redefine fundamental operations on that object.</p>
+  <p>We might want to have segments with properties we do not know beforehand.</p>
+</section>
 
-      <section>
-        <h1>Proxy example</h1>
-
-        <pre><code class="JavaScript hljs">
+<section data-name="Core concepts">
+  <h1>Proxy example</h1>
+<pre><code class="JavaScript hljs">
 const myObject = { hello: 'world' }
 
 const proxy = new Proxy(myObject, {
@@ -262,38 +279,44 @@ const proxy = new Proxy(myObject, {
 
 proxy.hello // Vienna
 proxy.gutenTag // Vienna
-        </code></pre>
-      
-      </section>
+</code></pre>
+</section>
 
+<section data-name="Core concepts"><iframe data-src="illustration-slides.svg#await-vs-then" data-preload></iframe></section>
+<section data-name="Summary">
+  <h1>Summary</h1>
 
-      <section><iframe data-src="illustration-slides.svg#await-vs-then" data-preload></iframe></section>
-      <section data-markdown>
-        <textarea data-template>
-          # Summary
+  <ul>
+    <li>Fluent interfaces enable DX</li>
+    <li>There are multiple types of chains (async / sync)</li>
+    <li>Core concepts
+      <ul>
+        <li>return this</li>
+        <li>getter methods</li>
+        <li>Proxies for unknown properties</li>
+        <li>then() for async chains</li>
+      </ul>
+    </li>
+  </ul>
+</section>
 
-          - Fluent APIs enable DX
-          - There are multiple types of chains (async / sync)
-          - Core concepts
-            - return this
-            - getter methods
-            - Proxies for unknown properties
-            - then() for async chains
+<section data-name="Summary">
+  <h1>Questions, thoughts? Thanks!</h1>
+  <p>Interested? Here are some links</p>
 
-          ---
+  <ul>
+    <li><a href="https://github.com/danielbeeke/fluent-calculator/">Fluent Calculator, a step by step tutorial</a></li>
+    <li><a href="https://github.com/danielbeeke/fluent-snake/">Fluent Snake, fluent interface helper library</a></li>
+    <li><a href="https://github.com/LDflex/LDflex">LDflex, linked data fluent interface</a></li>
+    <li><a href="https://refactoring.guru/design-patterns/builder">Builder pattern</a></li>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy">MDN Proxy</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Fluent_interface">Fluent Interface</a></li>
+    <li><a href="https://ruben.verborgh.org/blog/2018/12/28/designing-a-linked-data-developer-experience/">About good developer experience for RDF</a></li>
+    
+  </ul>
+    
+</section>
 
-          # Questions, thoughts? Thanks!
-
-          Interested? Here are some links
-
-          - [Fluent Calculator, a step by step tutorial](https://github.com/danielbeeke/fluent-calculator/)
-          - [Fluent Snake, fluent API helper library](https://github.com/danielbeeke/fluent-snake/)
-          - [LDflex, linked data fluent API](https://github.com/LDflex/LDflex)
-          - [Builder pattern](https://refactoring.guru/design-patterns/builder)
-          - [MDN Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
-
-        </textarea>
-    </section>
     </div>
   </div>
 </body>
