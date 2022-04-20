@@ -145,3 +145,7 @@ section iframe:not(.has-mouse) {
 .context {
   display: none;
 }
+
+.ldflex-iframe {
+  aspect-ratio: 297 / 210;
+}
