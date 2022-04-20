@@ -16,13 +16,13 @@
   </div>
     <div class="slides">
 
-<section data-name="Introduction">
+<section>
   <h1>Fluent interfaces</h1>
 
   <strong>All you need to know to make your own!</strong>
 </section>
 
-<section data-name="Introduction">
+<section>
   <h1>About me</h1>
 
   <a href="https://danielbeeke.nl">Daniël Beeke</a>,<br />
@@ -31,7 +31,7 @@
   <p>Dutch, living in Stockerau</p>
 </section>
 
-<section data-name="Introduction">
+<section>
   <h1>My background</h1>
 
   <p>Full stack software engineer</p>
@@ -45,7 +45,7 @@
   </ul>
 </section>
           
-<section data-name="Introduction">
+<section>
   <h1>Chapters</h1>
 
   <ul>
@@ -56,18 +56,18 @@
   </ul>
 </section>
 
-<section data-name="Fluent interfaces?">
+<section>
   <h1>What are fluent interfaces?</h1>
 
   <p>You probably have been working with them.</p>
 </section>
 
-<section data-name="Fluent interfaces?">
+<section>
   <h1>What are fluent interfaces?</h1>
-<pre class="fragment"><code class="JavaScript hljs">
+<pre class=""><code class="JavaScript hljs">
 jQuery('.my-button').fadeOut().remove()
 </code></pre>
-<pre class="fragment"><code class="JavaScript hljs">
+<pre class=""><code class="JavaScript hljs">
 new Person()
   .firstName('John')
   .lastName('Doo')
@@ -76,7 +76,7 @@ new Person()
 </code></pre>
 </section>
 
-<section data-name="Fluent interfaces?">
+<section>
   <h3>Fluent Snake</h3>
 <pre class=""><code class="JavaScript hljs">
 await api
@@ -91,7 +91,7 @@ await api
   </code></pre>
 </section>
 
-<section data-name="Fluent interfaces?">
+<section>
   <h3>LDflex</h3>
 <pre class=""><code class="JavaScript hljs">
 await solid.data['https://danielbeeke.nl/']['foaf:img']
@@ -100,9 +100,9 @@ await solid.data['https://danielbeeke.nl/']['foaf:img']
   </code></pre>
 </section>
 
-<section data-name="Fluent interfaces?"><iframe class="has-mouse" data-src="https://ldflex.github.io/Solid-Playground/#%5B'https%3A%2F%2Fdanielbeeke.nl%2F'%5D%5B'foaf%3Atopic_interest'%5D" data-preload></iframe></section>
+<section><iframe class="has-mouse" data-src="https://ldflex.github.io/Solid-Playground/#%5B'https%3A%2F%2Fdanielbeeke.nl%2F'%5D%5B'foaf%3Atopic_interest'%5D" data-preload></iframe></section>
 
-<section data-name="Fluent interfaces?">
+<section>
   <h1>What are fluent interfaces?</h1>
 
   <h3>Developer experience</h3>
@@ -115,7 +115,7 @@ await solid.data['https://danielbeeke.nl/']['foaf:img']
   </ul>
 </section>
 
-<section data-name="Use cases">
+<section>
   <h1>Use cases</h1>
 
   <ul>
@@ -125,7 +125,7 @@ await solid.data['https://danielbeeke.nl/']['foaf:img']
   </ul>
 </section>
 
-<section data-name="Use cases">
+<section>
   <h1>Libraries</h1>
   <em>moment.js:</em>
 <pre class=""><code class="JavaScript hljs">
@@ -135,7 +135,7 @@ moment('20111031', 'YYYYMMDD')
 </code></pre>
 </section>
 
-<section data-name="Use cases">
+<section>
   <h1>Data for the template</h1>
   <em><a href="https://github.com/danielbeeke/omni/blob/main/src/index.js">Omni prototype</a> (uses <a href="https://github.com/LDflex/LDflex">LDflex</a> and <a href="https://github.com/WebReflection/uhtml">uhtml/async</a>)</em>
 <pre class=""><code class="JavaScript hljs">
@@ -152,7 +152,7 @@ render(document.body, html`
 </code></pre>
 </section>
 
-<section data-name="Use cases">
+<section>
   <h1>Query builders</h1>
   <em>knex.js:</em>
 <pre class=""><code class="JavaScript hljs">
@@ -160,7 +160,7 @@ knex.select('id').from('users')
 </code></pre>
 </section>
 
-<section data-name="Use cases">
+<section>
   <h1>Query builders</h1>
   <em>Our PWAs querying the headless CMS:</em>
 <pre class=""><code class="JavaScript hljs">
@@ -176,7 +176,7 @@ const overviewQuery = query(queryTypes)
 </code></pre>
 </section>
 
-<section data-name="Types of chains">
+<section>
   <h1>Different types of chains</h1>
   <ul>
     <li>Builder chain</li>
@@ -185,15 +185,15 @@ const overviewQuery = query(queryTypes)
   </ul>
 </section>
 
-<section data-name="Types of chains"><iframe data-src="illustration-slides.svg#builder-chain" data-preload></iframe></section>
-<section data-name="Types of chains"><iframe data-src="illustration-slides.svg#queue-chain" data-preload></iframe></section>
-<section data-name="Types of chains"><iframe data-src="illustration-slides.svg#proxy-chain" data-preload></iframe></section>
+<section><iframe data-src="illustration-slides.svg#builder-chain" data-preload></iframe></section>
+<section><iframe data-src="illustration-slides.svg#queue-chain" data-preload></iframe></section>
+<section><iframe data-src="illustration-slides.svg#proxy-chain" data-preload></iframe></section>
 
-<section data-name="Core concepts">
+<section>
   <h1>Core concepts</h1>
 </section>
   
-<section data-name="Core concepts">
+<section>
   <h1>Methods must return 'this'</h1>
 <pre class=""><code class="JavaScript hljs">
 class Thing {
@@ -210,7 +210,7 @@ const item = new Thing().methodA().methodB()
 </code></pre>
 </section>
       
-<section data-name="Core concepts">
+<section>
   <h1>getters</h1>
 <pre class=""><code class="JavaScript hljs">
 class Thing {
@@ -226,9 +226,9 @@ console.log(item.fruit)
 </code></pre>
 </section>
 
-<section data-name="Core concepts"><iframe data-src="illustration-slides.svg#getters" data-preload></iframe></section>
+<section><iframe data-src="illustration-slides.svg#getters" data-preload></iframe></section>
 
-<section data-name="Core concepts">
+<section>
   <h1>You can use .then() to have async chains</h1>
 <pre class=""><code class="JavaScript hljs">
 class Thing {
@@ -246,7 +246,7 @@ console.log(await item)
 </code></pre>
 </section>
 
-<section data-name="Core concepts">
+<section>
   <h1>Promise chain</h1>
 
   <p>These can be used to return the value. Every segment of the chain appends a new Promise to the previous Promise.</p>
@@ -259,14 +259,14 @@ const person = await fetch('/user.json')
 </code></pre>
 </section>
 
-<section data-name="Core concepts">
+<section>
   <h1>Proxy</h1>
   <p>A layer on top of an object which can intercept and<br>
     redefine fundamental operations on that object.</p>
   <p>We might want to have segments with properties we do not know beforehand.</p>
 </section>
 
-<section data-name="Core concepts">
+<section>
   <h1>Proxy example</h1>
 <pre><code class="JavaScript hljs">
 const myObject = { hello: 'world' }
@@ -282,8 +282,8 @@ proxy.gutenTag // Vienna
 </code></pre>
 </section>
 
-<section data-name="Core concepts"><iframe data-src="illustration-slides.svg#await-vs-then" data-preload></iframe></section>
-<section data-name="Summary">
+<section><iframe data-src="illustration-slides.svg#await-vs-then" data-preload></iframe></section>
+<section>
   <h1>Summary</h1>
 
   <ul>
@@ -300,7 +300,7 @@ proxy.gutenTag // Vienna
   </ul>
 </section>
 
-<section data-name="Summary">
+<section>
   <h1>Questions, thoughts? Thanks!</h1>
   <p>Interested? Here are some links</p>
 
