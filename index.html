@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fluent APIs and libraries</title>
+  <script type="module" src="/presentation.js"></script>
+  <link rel="stylesheet" href="/scss/style.css">
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section data-markdown>
+        <textarea data-template>
+          # Fluent APIs and libraries
+          __How to make your own!__
+
+          _A journey through esoteric JavaScript and<br>TypeScript to build fluent API's._
+          ---
+          ## About me
+          [Daniël Beeke](https://danielbeeke.nl),<br />
+          Software engineer at [OM MediaWorks](https://www.om.org/mediaworks)
+
+          From the Netherlands, living in Stockerau
+          ---
+          ## Chapters
+
+          - Fluent API's
+          - Different types
+          - Use cases
+          - Let's make a fluent calculator
+          - Fluent Snake
+          - TypeScript
+          ---
+          ## Fluent API's
+
+          You probably have been working with them.
+
+          Note:
+          - You might not know the concept but...
+          - Who has been working with Fluent API's?
+          ---
+          <pre><code class="JavaScript hljs">
+          jQuery('.my-button').fadeOut().remove()
+          </code></pre>  
+          ---
+          <pre><code class="JavaScript hljs">
+            new Person()
+            .firstName('John')
+            .lastName('Doo')
+            .dateOfBirth('05-09-1883')
+            .save()
+          </code></pre>  
+
+          Note:
+          Query builder example
+          ---
+          <pre><code class="JavaScript hljs">
+            class Person () {
+
+              firstName (value) {
+                this.data.firstName = value
+                return this
+              }
+
+              ...
+
+            }
+          </code></pre>  
+          Note:
+          - Methods must return `this`. 
+          - Only known properties / methods.
+          - State is kept inside the instance of the class.
+          ---
+          <pre><code class="JavaScript hljs">
+          await api
+          .fetch('https://en.wikipedia.org/wiki/Linux')
+          .querySelector('.infobox tr:nth-child(4) a')
+          .href()
+          .fetch()
+          .querySelector('#firstHeading')
+          .text()
+
+          // Unix-like
+          </code></pre>
+          Note:
+          - Example of Fluent Snake.
+          - One await so a promise chain.
+          ---
+          <pre><code class="JavaScript hljs">
+          // A Promise chain
+
+          const person = await fetch('/user.json')
+          .then(response => response.json())
+          .then(response => new Person(response))
+          </code></pre>
+          Note:
+          Each method has it's own way of transforming the data before it will be picked up by the next method.
+          ---
+          <pre><code class="JavaScript hljs">
+          await api.projects({ type: 'js' })
+          .authors.map(async author => await author.name)
+
+          // ['John Doe', 'Frank Baker']
+          </code></pre>
+          Note:
+          This might work very well for headless apps.
+          You can imagine this would make it very simple for a junior frontender to piece things together.
+          Another use-case: API libraries. Tell about MEP.
+          Also properties are possible, getters.
+          ---
+          <pre><code class="JavaScript hljs">
+          await site.logos
+          // ['mobile-logo.png', 'desktop-logo.png']
+
+          await site.logos.mobile
+          // mobile-logo.png
+          </code></pre>
+          Note:
+          Here we are calling properties that do not exist, or are dynamic.
+          This it NOT possible with objects.
+          For that reason we will be using Proxies.
+          ---
+          ## Proxy
+
+          A layer on top of an object which can intercept and<br>
+          redefine fundamental operations on that object.
+
+          ---
+          <pre><code class="JavaScript hljs">
+          const myObject = { hello: 'world' }
+
+          const proxy = new Proxy(myObject, {
+            get: function(target, prop, receiver) {
+              return 'Vienna'
+            }
+          })
+
+          proxy.hello // Vienna
+          proxy.gutenTag // Vienna
+          </code></pre>
+          Note:
+          The cool thing here is ofcourse what you can do inside the 'get' method.
+          You could get the value and make it always lowercase or reverse letters.
+          Or some other logic that would be more real life.
+          ---
+          <pre><code class="JavaScript hljs">
+            await logos.mobile
+            // mobile-logo.png
+          </code></pre>
+          ---
+          <pre><code class="JavaScript hljs">
+          const srcLogos = ['logo-mobile.png', 'logo-desktop.png']
+
+          const logos = new Proxy(logos, {
+            get: function(target, prop, receiver) {
+              return target.find(logo => logo.includes(prop))
+            }
+          })
+
+          logos.desktop // 'logo-desktop.png'
+          </code></pre>
+          ---
+          ## Fluent Snake
+
+          A library to generate Fluent API's with the possibility of having dynamic properties.
+          ---
+          <pre><code class="JavaScript hljs">
+          function todos (user) {
+            let url = 'api.com/todos'
+            if (user) url += '?userId=' + user.id
+            return fetch(url)
+            .then(response => response.json())
+          }
+          
+          function users (id) {
+            let url = 'api.com/users'
+            if (id) url += '?id=' + id
+
+            return fetch(url)
+            .then(response => response.json())
+            .then(results => id ? results[0] : results)
+          }
+          </code></pre>
+          ---
+          <pre><code class="JavaScript hljs">
+
+          const settings = { 
+            methods: { todos, users },
+          }
+
+          export const api = FluentSnake(settings)
+
+          await api.user(2).todos(3)
+
+          // { id: 3, text: 'Buy eggs' }
+
+          </code></pre>
+          ---
+          <pre><code class="JavaScript hljs">
+          const settings = { 
+            pluckables: [ 'image' ],
+            methods: { todos, users },
+          }
+
+          export const api = FluentSnake(settings)
+
+          await api.user(2).image.avatar
+
+          // 'avatar-12312.png'
+          </code></pre>
+          ---
+          ## TypeScript
+
+          The struggle of getting code completion for a Proxy chain
+          ---
+          <pre><code class="TypeScript hljs">
+          function users (id: number): apiSingleResponse<᠎user>
+          function users (id?: undefined): apiArrayResponse<᠎user>
+          function users (id: number | undefined = undefined) {
+            let url = 'api.com/users'
+            if (id) url += '?id=' + id
+
+            return fetch(url).then(response => response.json())
+            .then(results => id ? results[0] : results) as unknown
+          }
+          </code></pre>
+          ---
+          <pre><code class="TypeScript hljs">
+
+            type apiSingleResponse<᠎T = unknown> = apiSingleResponseBase<᠎typeof settings.methods & typeof settings.getters, T, typeof settings.state>
+            type apiArrayResponse<᠎T = unknown> = apiArrayResponseBase<᠎typeof settings.methods & typeof settings.getters, T, typeof settings.state>
+              
+          </code></pre>
+        </textarea>
+      </section>
+      <section><iframe data-src="/illustration-slides.svg#await-vs-then" data-preload></iframe></section>
+      <section><iframe data-src="/illustration-slides.svg#getters" data-preload></iframe></section>
+      <section><iframe data-src="/illustration-slides.svg#builder-chain" data-preload></iframe></section>
+      <section><iframe data-src="/illustration-slides.svg#queue-chain" data-preload></iframe></section>
+      <section><iframe data-src="/illustration-slides.svg#proxy-chain" data-preload></iframe></section>
+
+    </div>
+  </div>
+</body>
+</html>
