@@ -138,7 +138,7 @@ section iframe:not(.has-mouse) {
 }
 
 .chapter {
-  font-size: 32px;
+  font-size: 16px;
   font-style: italic;
   color: var(--accent);
   padding: 4px 10px;
@@ -147,11 +147,12 @@ section iframe:not(.has-mouse) {
   position: fixed;
   top: 20px;
   left: 20px;
+  transform-origin: top left;
 
 }
 
 .chapter em {
-  font-size: 24px;
+  font-size: 12px;
   font-weight: normal;
 }
 

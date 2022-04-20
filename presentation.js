@@ -24,3 +24,13 @@ deck.on( 'slidechanged', event => {
    const index = itemsWithSameText.indexOf(event.currentSlide.querySelector('.context'))
    document.querySelector('.chapter').innerHTML = `${currentChapterText} <em>${index + 1} of ${itemsWithSameText.length}</em>`
  } );
+
+const wrapper = document.querySelector('.slides')
+
+const setChapterZoom = () => {
+   const zoom = wrapper.style.transform.split('scale(')[1].split(')')[0]
+   document.querySelector('.chapter').style.transform = `scale(${zoom})`
+}
+
+setTimeout(setChapterZoom, 200)
+window.addEventListener('resize', setChapterZoom)
