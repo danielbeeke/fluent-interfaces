@@ -1299,7 +1299,7 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Quicksand;-inkscape-font-specification:Quicksand;text-align:center;text-anchor:middle;fill:#f7faff;fill-opacity:1;stroke-width:0.167834"
          x="144.9371"
          y="63.137108"
-         id="tspan137667">.then executes the Promise chain.</tspan><tspan
+         id="tspan137667">.then resolves the Promise chain.</tspan><tspan
          sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Quicksand;-inkscape-font-specification:Quicksand;text-align:center;text-anchor:middle;fill:#f7faff;fill-opacity:1;stroke-width:0.167834"
          x="144.9371"
