@@ -10,20 +10,21 @@
   <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 </head>
 <body>
+  <div class="chapter"></div>
   <div class="reveal">
-    <div class="menubar">
-      <ul class="menu"></ul>
-  </div>
     <div class="slides">
 
 <section>
+  <span class="context hidden">Introduction</span>
+
   <h1>Fluent interfaces</h1>
 
   <strong>All you need to know to make your own!</strong>
 </section>
 
 <section>
-  <h1>About me</h1>
+  <span class="context">Introduction</span>
+  <h3>About me</h3>
 
   <a href="https://danielbeeke.nl">Daniël Beeke</a>,<br />
   <p>Software engineer at <a href="https://www.om.org/mediaworks">OM MediaWorks</a></p>
@@ -32,7 +33,8 @@
 </section>
 
 <section>
-  <h1>My background</h1>
+  <span class="context">Introduction</span>
+  <h3>My background</h3>
 
   <p>Full stack software engineer</p>
 
@@ -46,7 +48,9 @@
 </section>
           
 <section>
-  <h1>Chapters</h1>
+  <span class="context hidden">Introduction</span>
+
+  <h3>Chapters</h3>
 
   <ul>
     <li>What are fluent interfaces?</li>
@@ -57,16 +61,20 @@
 </section>
 
 <section>
+  <span class="context hidden">What are fluent interfaces?</span>
+
   <h1>What are fluent interfaces?</h1>
 
   <p>You probably have been working with them.</p>
 </section>
 
 <section>
-  <h1>What are fluent interfaces?</h1>
-<pre class=""><code class="JavaScript hljs">
-jQuery('.my-button').fadeOut().remove()
+  <span class="context">What are fluent interfaces?</span>
+
+  <h3>Fluent interfaces examples</h3>
+<pre class=""><code class="JavaScript hljs">jQuery('.my-button').fadeOut().remove()
 </code></pre>
+
 <pre class=""><code class="JavaScript hljs">
 new Person()
   .firstName('John')
@@ -77,9 +85,10 @@ new Person()
 </section>
 
 <section>
+  <span class="context">What are fluent interfaces?</span>
+
   <h3>Fluent Snake</h3>
-<pre class=""><code class="JavaScript hljs">
-await api
+<pre class=""><code class="JavaScript hljs">await api
   .fetch('https://en.wikipedia.org/wiki/Linux')
   .querySelector('.infobox tr:nth-child(4) a')
   .href()
@@ -92,18 +101,21 @@ await api
 </section>
 
 <section>
-  <h3>LDflex</h3>
-<pre class=""><code class="JavaScript hljs">
-await solid.data['https://danielbeeke.nl/']['foaf:img']
+  <span class="context">What are fluent interfaces?</span>
 
+  <h3>LDflex</h3>
+<pre class=""><code class="JavaScript hljs">await solid.data['https://danielbeeke.nl/']['foaf:img']
 // https://danielbeeke.nl/images/daniel.jpg
   </code></pre>
 </section>
 
-<section><iframe class="has-mouse" data-src="https://ldflex.github.io/Solid-Playground/#%5B'https%3A%2F%2Fdanielbeeke.nl%2F'%5D%5B'foaf%3Atopic_interest'%5D" data-preload></iframe></section>
+<section>
+  <span class="context">What are fluent interfaces?</span>
+<br><br>
+  <iframe class="has-mouse" data-src="https://ldflex.github.io/Solid-Playground/#%5B'https%3A%2F%2Fdanielbeeke.nl%2F'%5D%5B'foaf%3Atopic_interest'%5D" data-preload></iframe></section>
 
 <section>
-  <h1>What are fluent interfaces?</h1>
+  <span class="context">What are fluent interfaces?</span>
 
   <h3>Developer experience</h3>
 
@@ -116,6 +128,8 @@ await solid.data['https://danielbeeke.nl/']['foaf:img']
 </section>
 
 <section>
+  <span class="context hidden">Use cases</span>
+
   <h1>Use cases</h1>
 
   <ul>
@@ -126,19 +140,22 @@ await solid.data['https://danielbeeke.nl/']['foaf:img']
 </section>
 
 <section>
-  <h1>Libraries</h1>
-  <em>moment.js:</em>
-<pre class=""><code class="JavaScript hljs">
-moment('20111031', 'YYYYMMDD')
+  <span class="context">Use cases</span>
+
+  <h3>Libraries</h3>
+<pre class=""><code class="JavaScript hljs">moment('20111031', 'YYYYMMDD')
   .subtract(6, 'days')
   .fromNow()
 </code></pre>
 </section>
 
 <section>
-  <h1>Data for the template</h1>
+  <span class="context">Use cases</span>
+
+  <h3>Data for the template</h3>
   <em><a href="https://github.com/danielbeeke/omni/blob/main/src/index.js">Omni prototype</a> (uses <a href="https://github.com/LDflex/LDflex">LDflex</a> and <a href="https://github.com/WebReflection/uhtml">uhtml/async</a>)</em>
-<pre class=""><code class="JavaScript hljs">
+
+  <pre class=""><code class="JavaScript hljs">
 const source = 'https://ruben.verborgh.org/profile/'
 const omni = await new Omni(source, { context })
 const person = omni.get(source + '/#me')
@@ -153,15 +170,18 @@ render(document.body, html`
 </section>
 
 <section>
-  <h1>Query builders</h1>
-  <em>knex.js:</em>
-<pre class=""><code class="JavaScript hljs">
-knex.select('id').from('users')
+  <span class="context">Use cases</span>
+
+  <h3>Query builders</h3>
+
+<pre class=""><code class="JavaScript hljs">knex.select('id').from('users')
 </code></pre>
 </section>
 
 <section>
-  <h1>Query builders</h1>
+  <span class="context">Use cases</span>
+
+  <h3>Query builders</h3>
   <em>Our PWAs querying the headless CMS:</em>
 <pre class=""><code class="JavaScript hljs">
 const offset = state.page * this.pageSize
@@ -177,6 +197,8 @@ const overviewQuery = query(queryTypes)
 </section>
 
 <section>
+  <span class="context hidden">Different types of chains</span>
+
   <h1>Different types of chains</h1>
   <ul>
     <li>Builder chain</li>
@@ -185,18 +207,27 @@ const overviewQuery = query(queryTypes)
   </ul>
 </section>
 
-<section><iframe data-src="illustration-slides.svg#builder-chain" data-preload></iframe></section>
-<section><iframe data-src="illustration-slides.svg#queue-chain" data-preload></iframe></section>
-<section><iframe data-src="illustration-slides.svg#proxy-chain" data-preload></iframe></section>
+<section class="has-iframe-illustration">
+  <span class="context">Different types of chains</span>
+
+  <iframe data-src="illustration-slides.svg#builder-chain" data-preload></iframe></section>
+<section class="has-iframe-illustration">
+  <span class="context">Different types of chains</span>
+  <iframe data-src="illustration-slides.svg#queue-chain" data-preload></iframe></section>
+<section class="has-iframe-illustration">
+  <span class="context">Different types of chains</span>
+  <iframe data-src="illustration-slides.svg#proxy-chain" data-preload></iframe></section>
 
 <section>
+  <span class="context hidden">Core concepts</span>
   <h1>Core concepts</h1>
 </section>
   
 <section>
-  <h1>Methods must return 'this'</h1>
-<pre class=""><code class="JavaScript hljs">
-class Thing {
+  <span class="context">Core concepts</span>
+
+  <h3>Methods must return 'this'</h3>
+<pre class=""><code class="JavaScript hljs">class Thing {
   methodA () { return this }
 
   methodB () {
@@ -211,14 +242,12 @@ const item = new Thing().methodA().methodB()
 </section>
       
 <section>
-  <h1>getters</h1>
-<pre class=""><code class="JavaScript hljs">
-class Thing {
-
+  <span class="context">Core concepts</span>
+  <h3>getters</h3>
+<pre class=""><code class="JavaScript hljs">class Thing {
   get fruit () {
     return 'pear'
   }
-
 }
 
 console.log(item.fruit)
@@ -226,18 +255,19 @@ console.log(item.fruit)
 </code></pre>
 </section>
 
-<section><iframe data-src="illustration-slides.svg#getters" data-preload></iframe></section>
+<section class="has-iframe-illustration">
+  <span class="context">Core concepts</span>
+
+  <iframe data-src="illustration-slides.svg#getters" data-preload></iframe></section>
 
 <section>
-  <h1>You can use .then() to have async chains</h1>
-<pre class=""><code class="JavaScript hljs">
-class Thing {
-
+  <span class="context">Core concepts</span>
+  <h3>You can use .then() to have async chains</h3>
+<pre class=""><code class="JavaScript hljs">class Thing {
   async then (resolve) {
     // Do async things here ...
     resolve('Hello World')
   }
-
 }
 
 const item = new Thing()
@@ -247,7 +277,8 @@ console.log(await item)
 </section>
 
 <section>
-  <h1>Promise chain</h1>
+  <span class="context">Core concepts</span>
+  <h3>Promise chain</h3>
 
   <p>These can be used to return the value. Every segment of the chain appends a new Promise to the previous Promise.</p>
 <pre><code class="JavaScript hljs">
@@ -260,16 +291,17 @@ const person = await fetch('/user.json')
 </section>
 
 <section>
-  <h1>Proxy</h1>
+  <span class="context">Core concepts</span>
+  <h3>Proxy</h3>
   <p>A layer on top of an object which can intercept and<br>
     redefine fundamental operations on that object.</p>
   <p>We might want to have segments with properties we do not know beforehand.</p>
 </section>
 
 <section>
-  <h1>Proxy example</h1>
-<pre><code class="JavaScript hljs">
-const myObject = { hello: 'world' }
+  <span class="context">Core concepts</span>
+  <h3>Proxy example</h3>
+<pre><code class="JavaScript hljs">const myObject = { hello: 'world' }
 
 const proxy = new Proxy(myObject, {
   get: function(target, prop, receiver) {
@@ -282,8 +314,11 @@ proxy.gutenTag // Vienna
 </code></pre>
 </section>
 
-<section><iframe data-src="illustration-slides.svg#await-vs-then" data-preload></iframe></section>
+<section class="has-iframe-illustration">
+  <span class="context">Core concepts</span>
+  <iframe data-src="illustration-slides.svg#await-vs-then" data-preload></iframe></section>
 <section>
+  <span class="context hidden">Summary</span>
   <h1>Summary</h1>
 
   <ul>
@@ -301,6 +336,7 @@ proxy.gutenTag // Vienna
 </section>
 
 <section>
+  <span class="context hidden">Summary</span>
   <h1>Questions, thoughts? Thanks!</h1>
   <p>Interested? Here are some links</p>
 

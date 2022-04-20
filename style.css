@@ -114,14 +114,34 @@ a {
   background-color: var(--accent);
 }
 
+.reveal .progress {
+  top: 0;
+  bottom: auto;
+}
 
 section iframe {
   width: 100%;
-  margin-top: 30px;
-  aspect-ratio: 297 / 210;
+  aspect-ratio: 297 / 190;
   border: none;
 }
 
 section iframe:not(.has-mouse) {
   pointer-events: none;
+}
+
+.chapter {
+  font-size: 28px;
+  font-style: italic;
+  color: var(--accent);
+  background: black;
+  padding: 4px 10px;
+  border-radius: 5px;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+
+}
+
+.context {
+  display: none;
 }

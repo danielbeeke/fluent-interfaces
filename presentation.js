@@ -11,3 +11,16 @@ let deck = new Reveal({
    hash: true
 })
 deck.initialize();
+
+deck.on( 'slidechanged', event => {
+   const shouldHide = event.currentSlide.querySelector('.context').classList.contains('hidden')
+
+   if (shouldHide) document.querySelector('.chapter').style.display = 'none'
+   else document.querySelector('.chapter').style.display = 'block'
+
+   const currentChapterText = event.currentSlide.querySelector('.context').innerText
+   const chapters = [...document.querySelectorAll('.context')]
+   const itemsWithSameText = chapters.filter(chapter => chapter.innerText == currentChapterText && !chapter.classList.contains('hidden'))
+   const index = itemsWithSameText.indexOf(event.currentSlide.querySelector('.context'))
+   document.querySelector('.chapter').innerText = `${currentChapterText} (${index + 1} / ${itemsWithSameText.length})`
+ } );
