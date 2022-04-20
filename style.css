@@ -8,7 +8,7 @@ pre code.hljs {
 
 .hljs-comment,
 .hljs-quote {
-	color: rgb(161, 226, 8);
+	color: #6dc381;
 }
 
 .hljs-deletion,
@@ -91,6 +91,11 @@ html {
 
 h1, h2, h3, h4, h5, h6 {
   color: var(--accent);
+  font-weight: 900;
+}
+
+h1 {
+  font-size: 46px;
 }
 
 a {
@@ -110,8 +115,11 @@ a {
 }
 
 section iframe {
-  pointer-events: none;
   width: 100%;
   aspect-ratio: 297 / 210;
   border: none;
+}
+
+section iframe:not(.has-mouse) {
+  pointer-events: none;
 }
