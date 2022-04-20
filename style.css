@@ -1,7 +1,65 @@
-@import './node_modules/reveal.js/css/reveal.scss';
+@import url('https://cdn.skypack.dev/-/reveal.js@v4.3.1-326jYhbvhV3tINENPGwx/dist=es2019,mode=raw/dist/reveal.css');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap');
 
-@import './_code.scss';
+pre code.hljs {
+	display: block;
+	overflow-x: auto;
+}
+
+.hljs-comment,
+.hljs-quote {
+	color: rgb(161, 226, 8);
+}
+
+.hljs-deletion,
+.hljs-name,
+.hljs-regexp,
+.hljs-selector-class,
+.hljs-selector-id,
+.hljs-tag,
+.hljs-template-variable,
+.hljs-variable {
+	color: #ffa07a
+}
+
+.hljs-built_in,
+.hljs-link,
+.hljs-literal,
+.hljs-meta,
+.hljs-number,
+.hljs-params,
+.hljs-type {
+	color: #f5ab35
+}
+
+.hljs-attribute {
+	color: gold
+}
+
+.hljs-addition,
+.hljs-bullet,
+.hljs-string,
+.hljs-symbol {
+	color: var(--accent)
+}
+
+.hljs-section,
+.hljs-title {
+	color: #00e0e0
+}
+
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #757075
+}
+
+.hljs-emphasis {
+	font-style: italic
+}
+
+.hljs-strong {
+	font-weight: 700
+}
 
 html {
   font-family: 'Quicksand', sans-serif;
@@ -26,10 +84,9 @@ html {
   background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e26145' fill-opacity='0.04'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
-.reveal .controls .controls-arrow {
-  &:before, &:after {
-    background-color: var(--text);
-  }
+.reveal .controls .controls-arrow:before,
+.reveal .controls .controls-arrow:after {
+  background-color: var(--text);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -52,13 +109,9 @@ a {
   background-color: var(--accent);
 }
 
-section {
-  position: relative;
-
-  iframe {
-    pointer-events: none;
-    width: 100%;
-    aspect-ratio: 297 / 210;
-    border: none;
-  }
+section iframe {
+  pointer-events: none;
+  width: 100%;
+  aspect-ratio: 297 / 210;
+  border: none;
 }
