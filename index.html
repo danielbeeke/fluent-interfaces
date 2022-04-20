@@ -42,8 +42,8 @@
 
           - What are Fluent API's?
           - Use cases
-          - Core concepts
           - Different types of chains
+          - Core concepts
           ---
           ## What are Fluent API's?
 
@@ -163,6 +163,13 @@ const overviewQuery = query(queryTypes)
   .paginate({ offset, limit })
 </code></pre>
       </section>
+      <section><h1>Different types of chains</h1>
+        <p>Let's try to categorize the chains that we have seen.</p>
+      </section>
+
+      <section><iframe data-src="illustration-slides.svg#builder-chain" data-preload></iframe></section>
+      <section><iframe data-src="illustration-slides.svg#queue-chain" data-preload></iframe></section>
+      <section><iframe data-src="illustration-slides.svg#proxy-chain" data-preload></iframe></section>
 
       <section><h1>Core concepts</h1></section>
       <section>
@@ -181,6 +188,24 @@ const item = new Thing().methodA().methodB()
 // b
 </code></pre>
       </section>
+      
+
+      <section>
+        <h1>getters</h1>
+<pre class=""><code class="JavaScript hljs">
+class Thing {
+
+  get fruit () {
+    return 'pear'
+  }
+
+}
+
+console.log(item.fruit)
+// pear
+</code></pre>
+      </section>
+
       <section><iframe data-src="illustration-slides.svg#getters" data-preload></iframe></section>
 
       <section>
@@ -201,12 +226,50 @@ console.log(await item)
 </code></pre>
       </section>
 
-      <section><iframe data-src="illustration-slides.svg#await-vs-then" data-preload></iframe></section>
-      <section><h1>Different types of chains</h1></section>
+      <section>
+        <h1>Promise chain</h1>
 
-      <section><iframe data-src="illustration-slides.svg#builder-chain" data-preload></iframe></section>
-      <section><iframe data-src="illustration-slides.svg#queue-chain" data-preload></iframe></section>
-      <section><iframe data-src="illustration-slides.svg#proxy-chain" data-preload></iframe></section>
+        <p>These can be used to return the value. Every segment of the chain appends a new Promise to the previous Promise.</p>
+
+<pre><code class="JavaScript hljs">
+// A Promise chain
+
+const person = await fetch('/user.json')
+  .then(response => response.json())
+  .then(response => new Person(response))
+</code></pre>
+        
+      </section>
+
+      <section>
+        <h1>Proxy</h1>
+        <p>A layer on top of an object which can intercept and<br>
+          redefine fundamental operations on that object.</p>
+ 
+          <p>We might want to have segments with properties we do not know beforehand.</p>
+   
+      </section>
+
+      <section>
+        <h1>Proxy example</h1>
+
+        <pre><code class="JavaScript hljs">
+const myObject = { hello: 'world' }
+
+const proxy = new Proxy(myObject, {
+  get: function(target, prop, receiver) {
+    return 'Vienna'
+  }
+})
+
+proxy.hello // Vienna
+proxy.gutenTag // Vienna
+        </code></pre>
+      
+      </section>
+
+
+      <section><iframe data-src="illustration-slides.svg#await-vs-then" data-preload></iframe></section>
 
     </div>
   </div>
