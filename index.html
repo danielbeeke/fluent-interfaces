@@ -40,8 +40,8 @@
 
   <p>Working on a headless CMS that:</p>
   <ul>
-    <li>Uses RDF database</li>
-    <li>Outputs PWA's with ease</li>
+    <li>Uses a RDF database</li>
+    <li>Outputs media catalog PWAs with ease</li>
     <li>Up next: federating of data between instances</li>
     <li>In this context I learned about fluent interfaces</li>
   </ul>
@@ -57,6 +57,7 @@
     <li>Use cases</li>
     <li>Different types of chains</li>
     <li>Core concepts</li>
+    <li>Considerations</li>
   </ul>
 </section>
 
@@ -79,7 +80,7 @@
 <section>
   <span class="context">What are fluent interfaces?</span>
 
-  <h3>Fluent interfaces examples</h3>
+  <h3>Fluent interface examples</h3>
 <pre class=""><code class="JavaScript hljs">jQuery('.my-button').fadeOut().remove()
 </code></pre>
 
@@ -130,7 +131,7 @@ new Person()
   <ul>
     <li>Abstractions on top of complexity</li>
     <li>Provide easy access to data</li>
-    <li>Feel like objects</li>
+    <li>Feels like objects</li>
     <li>TypeScript autocompletion</li>
   </ul>
 </section>
@@ -218,12 +219,30 @@ const overviewQuery = query(queryTypes)
 <section class="has-iframe-illustration">
   <span class="context">Different types of chains</span>
 
+  <h3>Builder chain</h3>
+  <p>
+    One class instance that is returned with each method.<br>
+    May have a return method or a .then.<br>
+    Keeps state in the instance. Great for building queries or entities.
+  </p>
   <iframe data-src="illustration-slides.svg#builder-chain" data-preload></iframe></section>
 <section class="has-iframe-illustration">
   <span class="context">Different types of chains</span>
+  <h3>Async queue chain</h3>
+  <p>One class instance that is returned with each method.<br>
+    Methods add commands to queue <br>
+    .then executes them all.</p>
+
   <iframe data-src="illustration-slides.svg#queue-chain" data-preload></iframe></section>
 <section class="has-iframe-illustration">
   <span class="context">Different types of chains</span>
+  <h3>Async proxy promise chain</h3>
+  <p>
+    Each chunk is a new Proxy which has a Promise as the target.<br>
+.then resolves the Promise chain.<br>
+Allows for unknown keys in the chain.
+  </p>
+
   <iframe data-src="illustration-slides.svg#proxy-chain" data-preload></iframe></section>
 
 <section>
@@ -252,6 +271,7 @@ const item = new Thing().methodA().methodB()
 <section>
   <span class="context">Core concepts</span>
   <h3>getters</h3>
+  <p>You can use getter methods in chains</p>
 <pre class=""><code class="JavaScript hljs">class Thing {
   get fruit () {
     return 'pear'
@@ -265,7 +285,7 @@ console.log(item.fruit)
 
 <section class="has-iframe-illustration">
   <span class="context">Core concepts</span>
-
+  <h3>A getter example</h3>
   <iframe data-src="illustration-slides.svg#getters" data-preload></iframe></section>
 
 <section>
@@ -283,6 +303,75 @@ console.log(await item)
 // Hello World
 </code></pre>
 </section>
+
+<section>
+  <span class="context">Core concepts</span>
+  <h3>Queue</h3>
+  <pre><code class="JavaScript hljs">class Calculator {
+  #commands = []
+
+  add (number) { 
+    this.#commands.push((total) => total + number)
+    return this
+  }
+
+  minus ...
+}
+    </code></pre>
+</section>
+
+<section>
+  <span class="context">Core concepts</span>
+  <h3>Queue</h3>
+  <pre><code class="JavaScript hljs">
+temperatureForCity (city) { 
+
+  this.#commands.push(async (total) => {
+
+    const { lat, lon } = await getLatLonByCityName(city)
+    const temperature = await getTempByLatLon(lat, lon)
+
+    return total + temperature
+  })
+
+  return this
+}
+    </code></pre>
+</section>
+
+<section>
+  <span class="context">Core concepts</span>
+  <h3>Queue</h3>
+  <pre><code class="JavaScript hljs">class Calculator {
+  #commands = []
+  
+  ...
+
+  async then(resolve) {
+    let result = 0
+    for (command of this.#commands)
+      result = await command(result)
+    resolve(result)
+  }
+}
+
+    </code></pre>
+</section>
+
+<section>
+  <span class="context">Core concepts</span>
+  <h3>Queue</h3>
+  <pre><code class="JavaScript hljs">const calculator = new Calculator()
+const number = await calculator
+  .add(10)
+  .minus(4)
+  .temperatureForCity('Vienna') 
+  
+// 36
+
+    </code></pre>
+</section>
+
 
 <section>
   <span class="context">Core concepts</span>
@@ -324,14 +413,43 @@ proxy.gutenTag // Vienna
 
 <section class="has-iframe-illustration">
   <span class="context">Core concepts</span>
+  <h3>await vs. .then()</h3>
+  <p>await triggers the .then method</p>
   <iframe data-src="illustration-slides.svg#await-vs-then" data-preload></iframe></section>
+
+
+  <section>
+    <span class="context hidden">Considerations</span>
+    <h3>Considers</h3>
+    <p>What things could you consider?</p>
+  </section>
+
+  <section>
+    <span class="context">Considerations</span>
+    <h3>Diverging paths</h3>
+
+    <pre><code class="JavaScript hljs">html`
+  <h1>${await author.name.given}</h1>
+  <h1>${await author.email}</h1>
+`</code></pre>
+
+      Somehow one array of commands will not be enough.<br>
+      Promises are better in this area.
+  </section>
+
+
 <section>
   <span class="context hidden">Summary</span>
   <h1>Summary</h1>
 
   <ul>
     <li>Fluent interfaces enable DX</li>
-    <li>There are multiple types of chains (async / sync)</li>
+    <li>There are multiple types of chains
+      <ul>
+        <li>async vs. sync</li>
+        <li>queue vs. promise</li>
+      </ul>
+    </li>
     <li>Core concepts
       <ul>
         <li>return this</li>
