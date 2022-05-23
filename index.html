@@ -420,7 +420,7 @@ proxy.gutenTag // Vienna
 
   <section>
     <span class="context hidden">Considerations</span>
-    <h3>Considers</h3>
+    <h3>Considerations</h3>
     <p>What things could you consider?</p>
   </section>
 
@@ -433,10 +433,66 @@ proxy.gutenTag // Vienna
   <h1>${await author.email}</h1>
 `</code></pre>
 
-      Somehow one array of commands will not be enough.<br>
+      One array of commands will not be enough.<br>
       Promises are better in this area.
   </section>
 
+  <section>
+    <span class="context">Considerations</span>
+    <h3>TypeScript</h3>
+
+    <p>What about type autocompletion?</p>
+
+    <img src="/typescript-autocompletion.png" />
+</section>
+
+  <section>
+    <span class="context">Considerations</span>
+    <h3>TypeScript</h3>
+
+    <p>TypeScript does not understand a Proxy. <br>
+      But, we can instruct TypeScript it is dealing with something else.<br><br>
+      It start with Generics...
+    </p>
+
+    <pre><code class="TypeScript hljs">const items: Array<​string> = []
+</code></pre>
+</section>
+
+<section>
+  <span class="context">Considerations</span>
+  <h3>TypeScript Generics</h3>
+
+  <pre><code class="TypeScript hljs">function myFunction<​Type>(arg: Type) {}
+
+const example1 = myFunction<​string>()
+const example2 = myFunction<​number>()
+const example3 = myFunction<​Array<​​string>>()
+
+const example4 = myFunction('Hello World')
+</code></pre>
+</section>
+
+<section>
+  <span class="context">Considerations</span>
+  <h3>TypeScript Generics</h3>
+
+  <pre><code class="TypeScript hljs">function myFunction<​Type>(arg: Type): Promise<​Type> {
+  return new Promise(resolve => resolve(arg))
+}
+</code></pre>
+</section>
+
+<section>
+  <span class="context">Considerations</span>
+  <h3>TypeScript: as unknown as Type</h3>
+  <p>We can use this trick to tell TypeScript something acts as a certain type.</p>
+
+  <pre><code class="TypeScript hljs">function myFunction(arg: string) {
+  return arg as unknown as number
+}
+</code></pre>
+</section>
 
 <section>
   <span class="context hidden">Summary</span>
