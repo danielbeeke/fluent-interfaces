@@ -73,8 +73,8 @@ strong {
 
 :root {
   --color-white: #fff;
-  --color-orange: #e26145;
-  --color-green-dark: #0d2412;
+  --color-orange: #456fe2;
+  --color-green-dark: #08021a;
 
   --text: var(--color-white);
   --background: var(--color-green-dark);
@@ -148,7 +148,6 @@ section iframe:not(.has-mouse) {
   top: 20px;
   left: 20px;
   transform-origin: top left;
-
 }
 
 .chapter em {
@@ -162,4 +161,32 @@ section iframe:not(.has-mouse) {
 
 .ldflex-iframe {
   aspect-ratio: 297 / 210;
+}
+
+.slide-background.title {
+  max-width: 38%;
+}
+
+.slide-background.title:not(.right) {
+  text-align: right;
+  right: 0;
+}
+
+section.title:not(.right) > * {
+  padding-right: 80px;
+}
+
+section.title.right > * {
+  margin-left: 50%;
+  padding-left: 80px;
+}
+
+section.title p, section.title h1, section.title h2, section.title h3, section.title strong {
+  max-width: 50%;
+  display: block;
+  box-sizing: border-box;
+}
+
+.center {
+  text-align: center;
 }
