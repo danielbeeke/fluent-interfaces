@@ -177,8 +177,8 @@ section.title:not(.right) > * {
 }
 
 section.title.right > * {
-  margin-left: 50%;
-  padding-left: 80px;
+  margin-left: 40%;
+  padding-left: 40px;
 }
 
 section.title p, section.title h1, section.title h2, section.title h3, section.title strong {
@@ -189,4 +189,9 @@ section.title p, section.title h1, section.title h2, section.title h3, section.t
 
 .center {
   text-align: center;
+}
+
+.reveal > .backgrounds .slide-background.future, 
+.reveal > .backgrounds .slide-background.past {
+  opacity: 0 !important;
 }
