@@ -73,8 +73,8 @@ strong {
 
 :root {
   --color-white: #fff;
-  --color-orange: #e26145;
-  --color-green-dark: #011817;
+  --color-orange: #456fe2;
+  --color-green-dark: #08021a;
 
   --text: var(--color-white);
   --background: var(--color-green-dark);
@@ -85,7 +85,7 @@ strong {
   background-color: var(--background);
   color: var(--text);
   line-height: 1.4;
-  background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e26145' fill-opacity='0.04'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e26145' fill-opacity='0.10'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 .reveal .controls .controls-arrow:before,
@@ -148,7 +148,6 @@ section iframe:not(.has-mouse) {
   top: 20px;
   left: 20px;
   transform-origin: top left;
-
 }
 
 .chapter em {
@@ -162,4 +161,37 @@ section iframe:not(.has-mouse) {
 
 .ldflex-iframe {
   aspect-ratio: 297 / 210;
+}
+
+.slide-background.title {
+  max-width: 38%;
+}
+
+.slide-background.title:not(.right) {
+  text-align: right;
+  right: 0;
+}
+
+section.title:not(.right) > * {
+  padding-right: 80px;
+}
+
+section.title.right > * {
+  margin-left: 40%;
+  padding-left: 40px;
+}
+
+section.title p, section.title h1, section.title h2, section.title h3, section.title strong {
+  max-width: 50%;
+  display: block;
+  box-sizing: border-box;
+}
+
+.center {
+  text-align: center;
+}
+
+.reveal > .backgrounds .slide-background.future, 
+.reveal > .backgrounds .slide-background.past {
+  opacity: 0 !important;
 }

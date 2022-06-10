@@ -14,7 +14,7 @@
   <div class="reveal">
     <div class="slides">
 
-<section>
+<section class="title right" data-background="https://images.unsplash.com/photo-1633424765313-66fa2f87fef7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fHdhdnl8ZW58MHx8MHx8&auto=format&fit=crop&w=2000&q=60">
   <span class="context hidden">Introduction</span>
 
   <h1>Fluent interfaces</h1>
@@ -47,7 +47,7 @@
   </ul>
 </section>
           
-<section>
+<section class="title right" data-background="https://images.unsplash.com/photo-1568667256549-094345857637?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2000">
   <span class="context hidden">Introduction</span>
 
   <h3>Chapters</h3>
@@ -61,7 +61,7 @@
   </ul>
 </section>
 
-<section>
+<section data-background-position="left" class="title right" data-background="https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2470&q=80">
   <span class="context hidden">What are fluent interfaces?</span>
 
   <h1>What are fluent interfaces?</h1>
@@ -136,7 +136,7 @@ new Person()
   </ul>
 </section>
 
-<section>
+<section class="title right" data-background="https://images.unsplash.com/photo-1517732306149-e8f829eb588a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80">
   <span class="context hidden">Use cases</span>
 
   <h1>Use cases</h1>
@@ -205,7 +205,7 @@ const overviewQuery = query(queryTypes)
 </code></pre>
 </section>
 
-<section>
+<section class="title right" data-background="https://images.unsplash.com/photo-1525207106105-b340f7384b30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTA2fHxjaGFpbnN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60">
   <span class="context hidden">Different types of chains</span>
 
   <h1>Different types of chains</h1>
@@ -245,9 +245,10 @@ Allows for unknown keys in the chain.
 
   <iframe data-src="illustration-slides.svg#proxy-chain" data-preload></iframe></section>
 
-<section>
+<section class="title right" data-background="https://images.unsplash.com/photo-1565377167263-d29b5ac85479?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80">
   <span class="context hidden">Core concepts</span>
   <h1>Core concepts</h1>
+  <p>The mechanics that make it work.</p>
 </section>
   
 <section>
@@ -323,8 +324,7 @@ console.log(await item)
 <section>
   <span class="context">Core concepts</span>
   <h3>Queue</h3>
-  <pre><code class="JavaScript hljs">
-temperatureForCity (city) { 
+  <pre><code class="JavaScript hljs">temperatureForCity (city) { 
 
   this.#commands.push(async (total) => {
 
@@ -418,9 +418,9 @@ proxy.gutenTag // Vienna
   <iframe data-src="illustration-slides.svg#await-vs-then" data-preload></iframe></section>
 
 
-  <section>
+  <section class="title right" data-background="https://images.unsplash.com/photo-1552529232-9e6cb081de19?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=60&raw_url=true&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bGFtcHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500">
     <span class="context hidden">Considerations</span>
-    <h3>Considers</h3>
+    <h1>Considerations</h1>
     <p>What things could you consider?</p>
   </section>
 
@@ -433,12 +433,68 @@ proxy.gutenTag // Vienna
   <h1>${await author.email}</h1>
 `</code></pre>
 
-      Somehow one array of commands will not be enough.<br>
+      One array of commands will not be enough.<br>
       Promises are better in this area.
   </section>
 
+  <section>
+    <span class="context">Considerations</span>
+    <h3>TypeScript</h3>
+
+    <p>What about type autocompletion?</p>
+
+    <img src="typescript-autocompletion.png" />
+</section>
+
+  <section>
+    <span class="context">Considerations</span>
+    <h3>TypeScript</h3>
+
+    <p>TypeScript does not understand a Proxy. <br>
+      But, we can instruct TypeScript it is dealing with something else.<br><br>
+      It start with Generics...
+    </p>
+
+    <pre><code class="TypeScript hljs">const items: Array<​string> = []
+</code></pre>
+</section>
 
 <section>
+  <span class="context">Considerations</span>
+  <h3>TypeScript Generics</h3>
+
+  <pre><code class="TypeScript hljs">function myFunction<​Type>(arg: Type) {}
+
+const example1 = myFunction<​string>()
+const example2 = myFunction<​number>()
+const example3 = myFunction<​Array<​​string>>()
+
+const example4 = myFunction('Hello World')
+</code></pre>
+</section>
+
+<section>
+  <span class="context">Considerations</span>
+  <h3>TypeScript Generics</h3>
+
+  <pre><code class="TypeScript hljs">function myFunction<​Type>(arg: Type): Promise<​Type> {
+  return new Promise(resolve => resolve(arg))
+}
+</code></pre>
+</section>
+
+<section>
+  <span class="context">Considerations</span>
+  <h3>TypeScript: as unknown as Type</h3>
+  <p>We can use this trick to tell TypeScript something acts as a certain type.</p>
+
+  <pre><code class="TypeScript hljs">function myFunction(arg: string) {
+  return arg as unknown as number
+}
+</code></pre>
+</section>
+
+<section class="title right" data-background="https://images.unsplash.com/photo-1598520106830-8c45c2035460?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80">
   <span class="context hidden">Summary</span>
   <h1>Summary</h1>
 
@@ -458,13 +514,20 @@ proxy.gutenTag // Vienna
         <li>then() for async chains</li>
       </ul>
     </li>
+    <li>
+      Considerations
+      <ul>
+        <li>Use a Promise chain for templating</li>
+        <li>TypeScript can give autocompletion</li>
+      </ul>
+    </li>
   </ul>
 </section>
 
-<section>
+<section class="">
   <span class="context hidden">Summary</span>
   <h1>Questions, thoughts? Thanks!</h1>
-  <p>Interested? Here are some links</p>
+  <p>Interested? Here are some links:</p>
 
   <ul>
     <li><a href="https://github.com/danielbeeke/fluent-calculator/">Fluent Calculator, a step by step tutorial</a></li>
@@ -477,7 +540,7 @@ proxy.gutenTag // Vienna
   </ul>
   <br>
   <em>This presentation:</em> 
-  <h3 style="margin-top: 10px">https://danielbeeke.nl/fluent-interfaces</h3>
+  <h4 style="margin-top: 10px">https://danielbeeke.nl/fluent-interfaces</h4>
 
 </section>
 
