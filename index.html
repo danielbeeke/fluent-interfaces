@@ -427,15 +427,26 @@ proxy.gutenTag // Vienna
   <section>
     <span class="context">Considerations</span>
     <h3>Diverging paths</h3>
+<p>
+    One array of commands will not be enough.<br>
+    Promises are better in this area.
+  </p>
+  <br>
+    <iframe data-src="illustration-slides.svg#diverging-paths-1" data-preload></iframe>
 
-    <pre><code class="JavaScript hljs">html`
-  <h1>${await author.name.given}</h1>
-  <h1>${await author.email}</h1>
-`</code></pre>
-
-      One array of commands will not be enough.<br>
-      Promises are better in this area.
   </section>
+
+  <section>
+    <span class="context">Considerations</span>
+    <h3>Diverging paths</h3>
+    <p>
+      Each chunk is its own Promise. With a queue we would have to clone the queue a lot of times.
+    </p>
+    <br>
+    <iframe data-src="illustration-slides.svg#diverging-paths-2" data-preload></iframe>
+
+  </section>
+
 
   <section>
     <span class="context">Considerations</span>
