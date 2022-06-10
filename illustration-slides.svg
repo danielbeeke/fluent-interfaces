@@ -5,7 +5,7 @@
    viewBox="0 0 297 90"
    version="1.1"
    id="svg5"
-   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
    sodipodi:docname="illustration-slides.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -28,23 +28,22 @@
      inkscape:pagecheckerboard="0"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="16"
-     inkscape:cx="166.3125"
-     inkscape:cy="22.71875"
+     inkscape:zoom="5.6568543"
+     inkscape:cx="74.953319"
+     inkscape:cy="8.396893"
      inkscape:window-width="2560"
-     inkscape:window-height="1376"
+     inkscape:window-height="1322"
      inkscape:window-x="1920"
      inkscape:window-y="456"
      inkscape:window-maximized="1"
-     inkscape:current-layer="proxy-chain" />
+     inkscape:current-layer="g24536" />
   <defs
      id="defs2" />
   <g
      inkscape:label="await vs then"
      inkscape:groupmode="layer"
      id="await-vs-then"
-     style="display:none"
-     sodipodi:insensitive="true">
+     style="display:none">
     <rect
        style="fill:#155724;fill-rule:evenodd;stroke-width:0.482804"
        id="rect31"
@@ -284,13 +283,13 @@
          y="67.724838">.</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:9.13115px;line-height:1.25;font-family:sans-serif;fill:#0e0e0e;fill-opacity:1;stroke:none;stroke-width:0.228279"
+       style="font-style:normal;font-weight:normal;font-size:9.13115px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.228279"
        x="144.98363"
        y="67.724838"
        id="text22767"><tspan
          sodipodi:role="line"
          id="tspan22765"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Quicksand;-inkscape-font-specification:Quicksand;fill:#0e0e0e;fill-opacity:1;stroke-width:0.228279"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Quicksand;-inkscape-font-specification:Quicksand;fill:#ffffff;fill-opacity:1;stroke-width:0.228279"
          x="144.98363"
          y="67.724838">.</tspan></text>
     <text
@@ -817,7 +816,8 @@
      inkscape:groupmode="layer"
      id="proxy-chain"
      inkscape:label="proxy chain"
-     style="display:none">
+     style="display:none"
+     sodipodi:insensitive="true">
     <rect
        style="fill:#155724;fill-rule:evenodd;stroke-width:0.482804"
        id="rect84050"
@@ -1026,5 +1026,163 @@
          x="97.518356"
          y="75.527008"
          id="tspan84126">&quot;Lorem ipsum&quot;</tspan></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer1"
+     inkscape:label="diverging paths 1"
+     style="display:none"
+     sodipodi:insensitive="true">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:9.2204px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.23051"
+       x="-0.2298584"
+       y="7.707859"
+       id="text4322"><tspan
+         sodipodi:role="line"
+         id="tspan4320"
+         x="-0.2298584"
+         y="7.707859"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Quicksand;-inkscape-font-specification:Quicksand;stroke-width:0.23051"><tspan
+   style="fill:#757075;fill-opacity:1"
+   id="tspan24230">const</tspan> author = api.getUser(id)</tspan><tspan
+         sodipodi:role="line"
+         x="-0.2298584"
+         y="19.604336"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Quicksand;-inkscape-font-specification:Quicksand;stroke-width:0.23051"
+         id="tspan7794">html`</tspan><tspan
+         sodipodi:role="line"
+         x="-0.2298584"
+         y="31.500813"
+         id="tspan4324"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Quicksand;-inkscape-font-specification:Quicksand;stroke-width:0.23051">  <tspan
+   style="fill:#ffa07a;fill-opacity:1"
+   id="tspan14588">&lt;h1&gt;</tspan>${<tspan
+   style="fill:#757075;fill-opacity:1"
+   id="tspan21940">await</tspan> author.name.given}<tspan
+   style="fill:#ffa07a;fill-opacity:1"
+   id="tspan16732">&lt;/h1&gt;</tspan></tspan><tspan
+         sodipodi:role="line"
+         x="-0.2298584"
+         y="43.397289"
+         id="tspan4326"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Quicksand;-inkscape-font-specification:Quicksand;stroke-width:0.23051">  <tspan
+   style="fill:#ffa07a;fill-opacity:1"
+   id="tspan20678">&lt;h1&gt;</tspan>${<tspan
+   style="fill:#757075;fill-opacity:1"
+   id="tspan23022">await</tspan> author.email}<tspan
+   style="fill:#ffa07a;fill-opacity:1"
+   id="tspan18762">&lt;/h1&gt;</tspan></tspan><tspan
+         sodipodi:role="line"
+         x="-0.2298584"
+         y="55.293766"
+         id="tspan4328"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Quicksand;-inkscape-font-specification:Quicksand;stroke-width:0.23051">`</tspan></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="g24536"
+     inkscape:label="diverging paths 2"
+     sodipodi:insensitive="true"
+     style="display:none">
+    <rect
+       style="fill:#005544;fill-opacity:1;stroke:#000000;stroke-width:0.180316;stroke-linecap:round;stroke-linejoin:round"
+       id="rect25636"
+       width="23.408388"
+       height="8.5697088"
+       x="86.607704"
+       y="36.004452"
+       rx="0.56430292"
+       ry="0.59017915" />
+    <rect
+       style="fill:#445500;fill-opacity:1;stroke:#000000;stroke-width:0.179219;stroke-linecap:round;stroke-linejoin:round"
+       id="rect25516"
+       width="23.121532"
+       height="8.5708055"
+       x="113.0491"
+       y="24.269062"
+       rx="0.55738777"
+       ry="0.59025466" />
+    <rect
+       style="fill:#803300;fill-opacity:1;stroke:#000000;stroke-width:0.186507;stroke-linecap:round;stroke-linejoin:round"
+       id="rect24728"
+       width="25.061508"
+       height="8.5635176"
+       x="87.052742"
+       y="24.272705"
+       rx="0.60415447"
+       ry="0.58975279" />
+    <rect
+       style="fill:#004455;fill-opacity:1;stroke:#000000;stroke-width:0.201976;stroke-linecap:round;stroke-linejoin:round"
+       id="rect24644"
+       width="29.444393"
+       height="8.548049"
+       x="56.618538"
+       y="36.015282"
+       rx="0.7098121"
+       ry="0.58868742" />
+    <rect
+       style="fill:#004455;fill-opacity:1;stroke:#000000;stroke-width:0.202123;stroke-linecap:round;stroke-linejoin:round"
+       id="rect24642"
+       width="29.487751"
+       height="8.5479021"
+       x="56.618614"
+       y="24.280514"
+       rx="0.71085733"
+       ry="0.58867729" />
+    <rect
+       style="fill:#004455;fill-opacity:1;stroke:#000000;stroke-width:0.204888;stroke-linecap:round;stroke-linejoin:round"
+       id="rect24560"
+       width="30.309742"
+       height="8.5451374"
+       x="24.53161"
+       y="0.28189686"
+       rx="0.73067296"
+       ry="0.58848691" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:9.2204px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.23051"
+       x="-0.2298584"
+       y="7.707859"
+       id="text24534"><tspan
+         sodipodi:role="line"
+         id="tspan24512"
+         x="-0.2298584"
+         y="7.707859"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Quicksand;-inkscape-font-specification:Quicksand;stroke-width:0.23051"><tspan
+   style="fill:#757075;fill-opacity:1"
+   id="tspan24510">const</tspan> author = api.getUser(id)</tspan><tspan
+         sodipodi:role="line"
+         x="-0.2298584"
+         y="19.604336"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Quicksand;-inkscape-font-specification:Quicksand;stroke-width:0.23051"
+         id="tspan24514">html`</tspan><tspan
+         sodipodi:role="line"
+         x="-0.2298584"
+         y="31.500813"
+         id="tspan24522"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Quicksand;-inkscape-font-specification:Quicksand;stroke-width:0.23051">  <tspan
+   style="fill:#ffa07a;fill-opacity:1"
+   id="tspan24516">&lt;h1&gt;</tspan>${<tspan
+   style="fill:#757075;fill-opacity:1"
+   id="tspan24518">await</tspan> author.name.given}<tspan
+   style="fill:#ffa07a;fill-opacity:1"
+   id="tspan24520">&lt;/h1&gt;</tspan></tspan><tspan
+         sodipodi:role="line"
+         x="-0.2298584"
+         y="43.397289"
+         id="tspan24530"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Quicksand;-inkscape-font-specification:Quicksand;stroke-width:0.23051">  <tspan
+   style="fill:#ffa07a;fill-opacity:1"
+   id="tspan24524">&lt;h1&gt;</tspan>${<tspan
+   style="fill:#757075;fill-opacity:1"
+   id="tspan24526">await</tspan> author.email}<tspan
+   style="fill:#ffa07a;fill-opacity:1"
+   id="tspan24528">&lt;/h1&gt;</tspan></tspan><tspan
+         sodipodi:role="line"
+         x="-0.2298584"
+         y="55.293766"
+         id="tspan24532"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Quicksand;-inkscape-font-specification:Quicksand;stroke-width:0.23051">`</tspan></text>
   </g>
 </svg>
