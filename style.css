@@ -195,3 +195,15 @@ section.title p, section.title h1, section.title h2, section.title h3, section.t
 .reveal > .backgrounds .slide-background.past {
   opacity: 0 !important;
 }
+
+.author-image {
+  float: right;
+  width: 160px;
+  height: 160px;
+  background: white;
+  border: 6px solid white;
+  position: relative;
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 50%;
+}
