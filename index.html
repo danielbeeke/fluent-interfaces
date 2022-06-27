@@ -273,6 +273,12 @@ console.log(await item)
 </code></pre>
 </section>
 
+<section class="has-iframe-illustration">
+  <span class="context">Core concepts</span>
+  <h3>await vs. .then()</h3>
+  <p>await triggers the .then method</p>
+  <iframe data-src="illustration-slides.svg#await-vs-then" data-preload></iframe></section>
+
 <section>
   <span class="context">Core concepts</span>
   <h3>Queue</h3>
@@ -379,12 +385,6 @@ proxy.gutenTag // Vienna
 </code></pre>
 </section>
 
-<section class="has-iframe-illustration">
-  <span class="context">Core concepts</span>
-  <h3>await vs. .then()</h3>
-  <p>await triggers the .then method</p>
-  <iframe data-src="illustration-slides.svg#await-vs-then" data-preload></iframe></section>
-
 <section class="title right" data-background="https://images.unsplash.com/photo-1525207106105-b340f7384b30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTA2fHxjaGFpbnN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60">
   <span class="context hidden">Different types of chains</span>
 
@@ -401,25 +401,26 @@ proxy.gutenTag // Vienna
 
   <h3>Builder chain</h3>
   <p>
-    One class instance that is returned with each method.<br>
-    May have a return method or a .then.<br>
-    Keeps state in the instance. Great for building queries or entities.
+    One class instance, returned from each method.<br>
+    Keeps state in the instance. <br>
+    Great for building queries or entities.
   </p>
   <iframe data-src="illustration-slides.svg#builder-chain" data-preload></iframe></section>
 <section class="has-iframe-illustration">
   <span class="context">Different types of chains</span>
   <h3>Async queue chain</h3>
-  <p>One class instance that is returned with each method.<br>
-    Methods add commands to queue <br>
-    .then executes them all.</p>
+  <p>
+    One class instance, returned from each method.<br>
+    Methods add commands to queue.<br>
+    .then() executes them all.</p>
 
   <iframe data-src="illustration-slides.svg#queue-chain" data-preload></iframe></section>
 <section class="has-iframe-illustration">
   <span class="context">Different types of chains</span>
   <h3>Async proxy promise chain</h3>
   <p>
-    Each chunk is a new Proxy which has a Promise as the target.<br>
-.then resolves the Promise chain.<br>
+    Each chunk is a new Proxy.<br>
+.then() resolves the Promise chain.<br>
 Allows for unknown keys in the chain.
   </p>
 
