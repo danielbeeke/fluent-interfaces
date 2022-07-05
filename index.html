@@ -42,7 +42,7 @@
 
   <p>Working on a headless CMS that:</p>
   <ul>
-    <li>Uses a RDF database</li>
+    <li>Uses an graph database with RDF as data system</li>
     <li>Outputs media catalog PWAs with ease</li>
     <li>Up next: federating of data between instances</li>
     <li>In this context I learned about fluent interfaces</li>
@@ -57,6 +57,7 @@
   <ul>
     <li>What are fluent interfaces?</li>
     <li>Use cases</li>
+    <li>My process</li>
     <li>Core concepts</li>
     <li>Different types of chains</li>
     <li>Considerations</li>
@@ -122,6 +123,7 @@
 
   <h3>Example: LDflex</h3>
 <pre class=""><code class="JavaScript hljs">await solid.data['https://danielbeeke.nl/']['foaf:img']
+
 // https://danielbeeke.nl/images/daniel.jpg
   </code></pre>
 </section>
@@ -165,7 +167,20 @@
   .fromNow()
 </code></pre>
 </section>
+<section>
+  <span class="context">Use cases</span>
 
+  <h3>Libraries</h3>
+<pre class=""><code class="JavaScript hljs">d3.select('svg')
+  .append('text')
+  .attr('font-size', '20px')
+  .attr('transform', 'translate(100,0)')
+  .attr('x', 150)
+  .attr('y', 200)
+  .text('Sample Chart Title')
+
+</code></pre>
+</section>
 <section>
   <span class="context">Use cases</span>
 
@@ -196,12 +211,64 @@ render(document.body, html`
 </section>
 
 <section>
-  <span class="context">Use cases</span>
+  <span class="context hidden">My process</span>
 
-  <h3>Query builders</h3>
-  <em>Our PWAs querying the headless CMS:</em>
-<pre class=""><code class="JavaScript hljs">
-const offset = state.page * this.pageSize
+  <h1>My process</h1>
+  <p>A bit of background.</p>
+  <p>What made me use and learn about fluent interfaces?</p>
+</section>
+
+<section>
+  <span class="context">My process</span>
+
+  
+  <h3>
+    <small><em>We are building an headless CMS</em><br></small>
+    with frontends that support:</h3>
+  <ul>
+    <li>Multilingual media items</li>
+    <em>(all metadata of books, authors, videos etc. in multiple languages)</em>
+    <li>Online and offline usage</li>
+    <em>(read eBooks / listen podcasts while traveling etc)</em>
+  </ul>
+</section>
+
+<section>
+  <span class="context">My process</span>
+
+  <h3>We wanted</h3>
+  <ul>
+    <li>Easy integration of the CMS in frontends</li>
+    <li>While enabling (new) features</li>
+    <li>A library that abstracts away complexity</li>
+  </ul>
+</section>
+
+<section>
+  <span class="context">My process</span>
+
+  <h3>It is mostly data display</h3>
+
+  <pre class=""><code class="JavaScript hljs">const eBook = get('ebook', id)
+
+return html`
+  <h3 class="title">
+    ${ebook.title}
+  </h3>
+
+  <span class="sub-title">
+    ${ebook.authors.map(author => author.name)}
+  </span>
+`
+  </code></pre>
+
+</section>
+
+<section>
+  <span class="context">My process</span>
+
+  <h3>Also lists</h3>
+<pre class=""><code class="JavaScript hljs">const offset = state.page * this.pageSize
 const limit = this.pageSize
 
 const overviewQuery = query(queryTypes)
@@ -233,6 +300,7 @@ const overviewQuery = query(queryTypes)
 }
 
 const item = new Thing().methodA().methodB()
+
 // b
 </code></pre>
 </section>
@@ -248,6 +316,7 @@ const item = new Thing().methodA().methodB()
 }
 
 console.log(item.fruit)
+
 // pear
 </code></pre>
 </section>
@@ -269,6 +338,7 @@ console.log(item.fruit)
 
 const item = new Thing()
 console.log(await item)
+
 // Hello World
 </code></pre>
 </section>
@@ -341,7 +411,7 @@ const number = await calculator
   .minus(4)
   .temperatureForCity('Vienna') 
   
-// 36
+// ~ 36
 
     </code></pre>
 </section>

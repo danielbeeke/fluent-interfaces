@@ -151,7 +151,7 @@ section iframe:not(.has-mouse) {
 }
 
 .chapter em {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: normal;
 }
 
@@ -206,4 +206,11 @@ section.title p, section.title h1, section.title h2, section.title h3, section.t
   object-fit: cover;
   overflow: hidden;
   border-radius: 50%;
+}
+
+ul em, p em {
+  color: gray;
+  font-size: 20px;
+  margin-bottom: 20px;
+  display: block;
 }

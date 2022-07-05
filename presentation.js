@@ -27,7 +27,7 @@ deck.on( 'slidechanged', event => {
 const wrapper = document.querySelector('.slides')
 
 const setChapterZoom = () => {
-   const zoom = wrapper.style.transform.split('scale(')[1].split(')')[0]
+   const zoom = wrapper.style.transform.split('scale(')[1]?.split(')')[0]
    document.querySelector('.chapter').style.transform = `scale(${zoom})`
 }
 
