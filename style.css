@@ -1,5 +1,6 @@
 @import url('https://cdn.skypack.dev/-/reveal.js@v4.3.1-326jYhbvhV3tINENPGwx/dist=es2019,mode=raw/dist/reveal.css');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
 
 pre code.hljs {
 	display: block;
@@ -65,6 +66,10 @@ html {
   font-family: 'Quicksand', sans-serif;
   font-weight: 300;
   font-size: 28px;
+}
+
+code {
+  font-family: 'Fira Code', monospace;
 }
 
 strong {

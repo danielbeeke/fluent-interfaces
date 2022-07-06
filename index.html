@@ -42,10 +42,10 @@
 
   <p>Working on a headless CMS that:</p>
   <ul>
-    <li>Uses an graph database with RDF as data system</li>
+    <li>Uses an RDF graph database</li>
     <li>Outputs media catalog PWAs with ease</li>
-    <li>Up next: federating of data between instances</li>
-    <li>In this context I learned about fluent interfaces</li>
+    <li>Up next: sharing of data between instances</li>
+    <li>This is when I learned about fluent interfaces</li>
   </ul>
 </section>
           
@@ -57,7 +57,7 @@
   <ul>
     <li>What are fluent interfaces?</li>
     <li>Use cases</li>
-    <li>My process</li>
+    <li>My use case</li>
     <li>Core concepts</li>
     <li>Different types of chains</li>
     <li>Considerations</li>
@@ -121,7 +121,7 @@
 <section>
   <span class="context">What are fluent interfaces?</span>
 
-  <h3>Example: LDflex</h3>
+  <h3>Example: LDflex on top of a Solid pod</h3>
 <pre class=""><code class="JavaScript hljs">await solid.data['https://danielbeeke.nl/']['foaf:img']
 
 // https://danielbeeke.nl/images/daniel.jpg
@@ -185,7 +185,8 @@
   <span class="context">Use cases</span>
 
   <h3>Data for the template</h3>
-  <em><a href="https://github.com/danielbeeke/omni/blob/main/src/index.js">Omni prototype</a> (uses <a href="https://github.com/LDflex/LDflex">LDflex</a> and <a href="https://github.com/WebReflection/uhtml">uhtml/async</a>)</em>
+  <em><a href="https://github.com/danielbeeke/omni/blob/main/src/index.js">Omni prototype</a><br>
+    Uses <a href="https://github.com/LDflex/LDflex">LDflex</a> and <a href="https://github.com/WebReflection/uhtml">uhtml/async</a> similar to React</em>
 
   <pre class=""><code class="JavaScript hljs">
 const source = 'https://ruben.verborgh.org/profile/'
@@ -211,15 +212,15 @@ render(document.body, html`
 </section>
 
 <section>
-  <span class="context hidden">My process</span>
+  <span class="context hidden">My use case</span>
 
-  <h1>My process</h1>
+  <h1>My use case</h1>
   <p>A bit of background.</p>
   <p>What made me use and learn about fluent interfaces?</p>
 </section>
 
 <section>
-  <span class="context">My process</span>
+  <span class="context">My use case</span>
 
   
   <h3>
@@ -234,7 +235,7 @@ render(document.body, html`
 </section>
 
 <section>
-  <span class="context">My process</span>
+  <span class="context">My use case</span>
 
   <h3>We wanted</h3>
   <ul>
@@ -245,7 +246,7 @@ render(document.body, html`
 </section>
 
 <section>
-  <span class="context">My process</span>
+  <span class="context">My use case</span>
 
   <h3>It is mostly data display</h3>
 
@@ -265,7 +266,7 @@ return html`
 </section>
 
 <section>
-  <span class="context">My process</span>
+  <span class="context">My use case</span>
 
   <h3>Also lists</h3>
 <pre class=""><code class="JavaScript hljs">const offset = state.page * this.pageSize
@@ -304,6 +305,11 @@ const item = new Thing().methodA().methodB()
 // b
 </code></pre>
 </section>
+
+<section class="has-iframe-illustration">
+  <span class="context">Core concepts</span>
+  <h3>A getter example</h3>
+  <iframe data-src="illustration-slides.svg#getters" data-preload></iframe></section>
       
 <section>
   <span class="context">Core concepts</span>
@@ -320,11 +326,6 @@ console.log(item.fruit)
 // pear
 </code></pre>
 </section>
-
-<section class="has-iframe-illustration">
-  <span class="context">Core concepts</span>
-  <h3>A getter example</h3>
-  <iframe data-src="illustration-slides.svg#getters" data-preload></iframe></section>
 
 <section>
   <span class="context">Core concepts</span>
@@ -408,10 +409,11 @@ console.log(await item)
   <pre><code class="JavaScript hljs">const calculator = new Calculator()
 const number = await calculator
   .add(10)
-  .minus(4)
   .temperatureForCity('Vienna') 
+  .minus(4)
+  .temperatureForCity('Amsterdam') 
   
-// ~ 36
+// ~ 56
 
     </code></pre>
 </section>
